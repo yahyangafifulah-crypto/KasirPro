@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Pelanggan</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="header">
+<h2>👥 Data Pelanggan</h2>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<input type="text" id="nama" placeholder="Nama Pelanggan">
+
+<input type="text" id="hp" placeholder="Nomor HP">
+
+<input type="text" id="alamat" placeholder="Alamat">
+
+<button onclick="tambahPelanggan()">
+💾 Simpan
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Daftar Pelanggan</h3>
+
+<ul id="listPelanggan"></ul>
+
+</div>
+<button onclick="location.href='dashboard.html'">
+⬅ Kembali
+</button>
+
+</div>
+
+<script src="js/pelanggan.js"></script>
+<script src="js/security.js"></script>
+</body>
+</html>

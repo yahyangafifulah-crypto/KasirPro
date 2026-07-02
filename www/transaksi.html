@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaksi - KasirPro</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="header">
+<h2>🛒 Transaksi</h2>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<select id="pilihBarang">
+
+</select>
+
+<input
+type="number"
+id="jumlah"
+placeholder="Jumlah">
+
+<button onclick="tambahKeranjang()">
+Tambah ke Keranjang
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Keranjang</h3>
+
+<ul id="keranjang">
+
+</ul>
+
+<h2 id="total">
+Total : Rp 0
+</h2>
+
+<input
+type="number"
+id="bayar"
+placeholder="Uang Bayar">
+
+<button onclick="bayarTransaksi()">
+Bayar
+</button>
+
+<h3 id="kembalian"></h3>
+
+</div>
+
+<button onclick="location.href='dashboard.html'">
+
+⬅ Kembali
+
+</button>
+
+</div>
+
+<script src="js/transaksi.js"></script>
+<script src="js/security.js"></script>
+</body>
+</html>

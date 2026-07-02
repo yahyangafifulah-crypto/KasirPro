@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Barang - KasirPro</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h2>📦 Kelola Barang</h2>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<input type="text" id="kode" placeholder="Kode Barang">
+
+<input type="text" id="barcode" placeholder="Barcode">
+
+<input type="text" id="nama" placeholder="Nama Barang">
+
+<input type="text" id="kategori" placeholder="Kategori">
+
+<input type="text" id="satuan" placeholder="Satuan">
+
+<input type="number" id="stok" placeholder="Stok">
+
+<input type="number" id="hargaBeli" placeholder="Harga Beli">
+
+<input type="number" id="hargaJual" placeholder="Harga Jual">
+
+<button onclick="tambahBarang()">
+💾 Simpan Barang
+</button>
+
+</div>
+
+<div class="card">
+
+<input type="text"
+id="cari"
+placeholder="Cari Barang..."
+onkeyup="cariBarang()">
+
+</div>
+
+<div class="card">
+
+<h3>Daftar Barang</h3>
+
+<ul id="listBarang">
+
+</ul>
+
+</div>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Kembali
+</button>
+
+</div>
+
+<script src="js/database.js"></script>
+<script src="js/barang.js"></script>
+<script src="js/security.js"></script>
+</body>
+</html>

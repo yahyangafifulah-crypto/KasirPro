@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - KasirPro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+    <h2>🛒 KasirPro</h2>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Selamat Datang</h3>
+        <p id="namaUser"></p>
+    </div>
+
+    <div class="menu">
+
+        <button onclick="location.href='barang.html'">
+            📦 Barang
+        </button>
+
+        <button onclick="location.href='transaksi.html'">
+            🛒 Transaksi
+        </button>
+
+        <button onclick="location.href='pelanggan.html'">
+            👥 Pelanggan
+        </button>
+
+        <button onclick="location.href='supplier.html'">
+            🚚 Supplier
+        </button>
+
+        <button onclick="location.href='laporan.html'">
+            📊 Laporan
+        </button>
+
+        <button onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+if(localStorage.getItem("login")!="true"){
+    window.location.href="index.html";
+}
+
+
+document.getElementById("namaUser").innerHTML =
+"Login sebagai : " + localStorage.getItem("user");
+
+function logout(){
+    localStorage.removeItem("login");
+    localStorage.removeItem("user");
+    window.location.href="index.html";
+}
+<script src="js/security.js"></script>
+</body>
+</html>
