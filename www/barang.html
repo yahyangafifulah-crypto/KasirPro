@@ -1,3 +1,13 @@
+
+m
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,7 +15,170 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kelola Barang - KasirPro</title>
 
-<link rel="stylesheet" href="css/style.css">
+<style>
+/* CSS Dasar untuk tampilan */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+button:first-of-type {
+    background: #667eea;
+    color: white;
+}
+
+button:first-of-type:hover {
+    background: #5a67d8;
+}
+
+button:nth-of-type(2) {
+    background: #48bb78;
+    color: white;
+}
+
+button:nth-of-type(2):hover {
+    background: #38a169;
+}
+
+button:nth-of-type(3) {
+    background: #ed8936;
+    color: white;
+}
+
+button:nth-of-type(3):hover {
+    background: #dd6b20;
+}
+
+button:last-of-type {
+    background: #a0aec0;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:last-of-type:hover {
+    background: #718096;
+}
+
+h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+#listBarang {
+    list-style: none;
+    padding: 0;
+}
+
+#listBarang li {
+    padding: 12px;
+    margin: 8px 0;
+    background: #f7fafc;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+#listBarang li:hover {
+    background: #edf2f7;
+    transform: translateX(5px);
+}
+
+.barang-info {
+    flex: 1;
+}
+
+.barang-info strong {
+    color: #2d3748;
+}
+
+.barang-info small {
+    color: #718096;
+    margin-left: 10px;
+}
+
+.hapus-btn {
+    background: #fc8181;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.hapus-btn:hover {
+    background: #f56565;
+    transform: scale(1.05);
+}
+</style>
 </head>
 
 <body>
@@ -17,64 +190,192 @@
 <div class="container">
 
 <div class="card">
-
-<input type="text" id="kode" placeholder="Kode Barang">
-
-<input type="text" id="barcode" placeholder="Barcode">
-
-<input type="text" id="nama" placeholder="Nama Barang">
-
-<input type="text" id="kategori" placeholder="Kategori">
-
-<input type="text" id="satuan" placeholder="Satuan">
-
-<input type="number" id="stok" placeholder="Stok">
-
-<input type="number" id="hargaBeli" placeholder="Harga Beli">
-
-<input type="number" id="hargaJual" placeholder="Harga 7Jual">
-
-<button onclick="tambahBarang()">
-💾 Simpan Barang
-</button>
-
-<button onclick="resetForm()">
-🧹 Bersihkan
-</button>
-
-<button onclick="exportBarang()">
-📤 Export
-</button>
-
+    <h3>📝 Tambah Barang</h3>
+    
+    <input type="text" id="kode" placeholder="Kode Barang">
+    <input type="text" id="barcode" placeholder="Barcode">
+    <input type="text" id="nama" placeholder="Nama Barang">
+    <input type="text" id="kategori" placeholder="Kategori">
+    <input type="text" id="satuan" placeholder="Satuan">
+    <input type="number" id="stok" placeholder="Stok">
+    <input type="number" id="hargaBeli" placeholder="Harga Beli">
+    <input type="number" id="hargaJual" placeholder="Harga Jual">
+    
+    <button onclick="tambahBarang()">💾 Simpan Barang</button>
+    <button onclick="resetForm()">🧹 Bersihkan</button>
+    <button onclick="exportBarang()">📤 Export</button>
 </div>
 
 <div class="card">
-
-<input type="text"
-id="cari"
-placeholder="Cari Barang..."
-onkeyup="cariBarang()">
-
+    <h3>🔍 Cari Barang</h3>
+    <input type="text" id="cari" placeholder="Cari Barang..." onkeyup="cariBarang()">
 </div>
 
 <div class="card">
+    <h3>📋 Daftar Barang</h3>
+    <ul id="listBarang"></ul>
+</div>
 
-<h3>Daftar Barang</h3>
-
-<ul id="listBarang">
-
-</ul>
+<button onclick="location.href='dashboard.html'">⬅ Kembali</button>
 
 </div>
 
-<button onclick="location.href='dashboard.html'">
-⬅ Kembali
-</button>
+<script>
+// Data barang (simulasi database)
+let dataBarang = [];
 
-</div>
+// Fungsi untuk menambah barang
+function tambahBarang() {
+    const kode = document.getElementById('kode').value.trim();
+    const barcode = document.getElementById('barcode').value.trim();
+    const nama = document.getElementById('nama').value.trim();
+    const kategori = document.getElementById('kategori').value.trim();
+    const satuan = document.getElementById('satuan').value.trim();
+    const stok = document.getElementById('stok').value.trim();
+    const hargaBeli = document.getElementById('hargaBeli').value.trim();
+    const hargaJual = document.getElementById('hargaJual').value.trim();
 
-<script src="js/database.js"></script>
-<script src="js/barang.js"></script>
-<script src="js/security.js"></script>
+    // Validasi input
+    if (!kode || !nama || !hargaJual) {
+        alert('Mohon isi Kode, Nama, dan Harga Jual!');
+        return;
+    }
+
+    // Cek duplikat kode
+    if (dataBarang.some(item => item.kode === kode)) {
+        alert('Kode barang sudah ada!');
+        return;
+    }
+
+    const barang = {
+        kode,
+        barcode: barcode || '-',
+        nama,
+        kategori: kategori || 'Umum',
+        satuan: satuan || 'Unit',
+        stok: parseInt(stok) || 0,
+        hargaBeli: parseInt(hargaBeli) || 0,
+        hargaJual: parseInt(hargaJual) || 0
+    };
+
+    dataBarang.push(barang);
+    resetForm();
+    tampilkanBarang();
+}
+
+// Fungsi untuk menampilkan daftar barang
+function tampilkanBarang(filter = '') {
+    const list = document.getElementById('listBarang');
+    list.innerHTML = '';
+
+    let filtered = dataBarang;
+    if (filter) {
+        filtered = dataBarang.filter(item => 
+            item.nama.toLowerCase().includes(filter.toLowerCase()) ||
+            item.kode.toLowerCase().includes(filter.toLowerCase())
+        );
+    }
+
+    if (filtered.length === 0) {
+        list.innerHTML = '<li style="text-align:center;color:#a0aec0;border-left-color:#a0aec0;">Tidak ada barang</li>';
+        return;
+    }
+
+    filtered.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <div class="barang-info">
+                <strong>${item.nama}</strong>
+                <small>${item.kode}</small>
+                <small>| Stok: ${item.stok}</small>
+                <small>| Rp ${item.hargaJual.toLocaleString()}</small>
+            </div>
+            <button class="hapus-btn" onclick="hapusBarang('${item.kode}')">✕</button>
+        `;
+        list.appendChild(li);
+    });
+}
+
+// Fungsi untuk menghapus barang
+function hapusBarang(kode) {
+    if (confirm('Yakin ingin menghapus barang ini?')) {
+        dataBarang = dataBarang.filter(item => item.kode !== kode);
+        tampilkanBarang();
+    }
+}
+
+// Fungsi untuk mencari barang
+function cariBarang() {
+    const keyword = document.getElementById('cari').value;
+    tampilkanBarang(keyword);
+}
+
+// Fungsi untuk reset form
+function resetForm() {
+    document.getElementById('kode').value = '';
+    document.getElementById('barcode').value = '';
+    document.getElementById('nama').value = '';
+    document.getElementById('kategori').value = '';
+    document.getElementById('satuan').value = '';
+    document.getElementById('stok').value = '';
+    document.getElementById('hargaBeli').value = '';
+    document.getElementById('hargaJual').value = '';
+    document.getElementById('kode').focus();
+}
+
+// Fungsi untuk export data
+function exportBarang() {
+    if (dataBarang.length === 0) {
+        alert('Tidak ada data untuk di-export!');
+        return;
+    }
+
+    // Format CSV
+    let csv = 'Kode,Barcode,Nama,Kategori,Satuan,Stok,Harga Beli,Harga Jual\n';
+    dataBarang.forEach(item => {
+        csv += `${item.kode},${item.barcode},${item.nama},${item.kategori},${item.satuan},${item.stok},${item.hargaBeli},${item.hargaJual}\n`;
+    });
+
+    // Download file
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `barang_${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// Inisialisasi dengan data contoh
+function initData() {
+    dataBarang = [
+        { kode: 'BRG001', barcode: '1234567890', nama: 'Laptop', kategori: 'Elektronik', satuan: 'Unit', stok: 10, hargaBeli: 7000000, hargaJual: 8500000 },
+        { kode: 'BRG002', barcode: '0987654321', nama: 'Mouse', kategori: 'Elektronik', satuan: 'Unit', stok: 50, hargaBeli: 50000, hargaJual: 75000 },
+        { kode: 'BRG003', barcode: '1122334455', nama: 'Keyboard', kategori: 'Elektronik', satuan: 'Unit', stok: 30, hargaBeli: 150000, hargaJual: 200000 }
+    ];
+    tampilkanBarang();
+}
+
+// Jalankan inisialisasi
+initData();
+</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
