@@ -2,14 +2,28 @@ function tambahBarang() {
 
     let data = {
         kode: document.getElementById("kode").value,
-        barcode: document.getElementById("barcode").value,
+        barcode:
+ document.getElementById("barcode").value,
         nama: document.getElementById("nama").value,
-        kategori: document.getElementById("kategori").value,
+        kategori:
+ document.getElementById("kategori").value,
         satuan: document.getElementById("satuan").value,
         stok: document.getElementById("stok").value,
-        hargaBeli: document.getElementById("hargaBeli").value,
-        hargaJual: document.getElementById("hargaJual").value
+        hargaBeli:
+ document.getElementById("hargaBeli").value,
+        hargaJual:
+ document.getElementById("hargaJual").value
     };
+
+   if (
+    data.kode === "" ||
+    data.nama === "" ||
+    data.stok === "" ||
+    data.hargaJual === ""
+) {
+    alert("Lengkapi data barang terlebih dahulu!");
+    return;
+}
 
     simpanBarang(data, function () {
 
@@ -54,6 +68,11 @@ function tampilBarang() {
                     Stok: ${b.stok}<br>
                     Harga Beli: Rp ${b.harga_beli}<br>
                     Harga Jual: Rp ${b.harga_jual}<br>
+
+                   <button onclick="hapusData(${b.id})">
+                       🗑️ Hapus
+                   </button>
+
                 </li>
                 <hr>
             `;

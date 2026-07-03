@@ -79,3 +79,20 @@ function ambilBarang(sukses){
     });
 
 }
+function hapusBarang(id, sukses){
+
+    db.transaction(function(tx){
+
+        tx.executeSql(
+            "DELETE FROM barang WHERE id=?",
+            [id],
+            function(tx,res){
+
+                if(sukses) sukses(res);
+
+            }
+        );
+
+    });
+
+}
